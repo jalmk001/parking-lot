@@ -1,0 +1,61 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#{% extends 'temp/user.html' %}#}
+{#{% block base %}#}
+{#<body>#}
+{#<form method="post" enctype="multipart/form-data">#}
+{#    {% csrf_token %}#}
+{##}
+{#<table align="center">#}
+{##}
+{##}
+{#    <tr>#}
+{#        <td>AMOUNT</td>#}
+{#        <td><input type="text" name="amount"></td>#}
+{#    </tr>#}
+{#     <tr>#}
+{#        <td></td>#}
+{#        <td><input type="submit" name="btn" value="PAY"></td>#}
+{#    </tr>#}
+{#</table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+
+
+
+
+{% extends 'temp/user.html' %}
+{% block base %}
+    <div style="background-color: lightblue">
+{#       <div class="container-fluid bg-primary text-white mt-5 pt-5 px-sm-3 px-md-5">#}
+<script type="text/javascript">
+    function preback() { window.history.forward();}
+    setTimeout("preback()",0);
+    window.onunload=function () {null};
+</script>
+  <div class="col-lg-3 col-md-6 mb-5" >
+                 <h4 class="text-white mb-4">PAYMENT</h4>
+                 <center><form method="post">
+                     {% csrf_token %}
+
+                    <div class="form-group">
+                        <input type="text" class="form-control border-0" placeholder="Amount" required="required"  name="amount"/>
+                    </div>
+
+
+                    <div>
+                        <button class="btn btn-lg btn-secondary btn-block border-0" type="submit">OK</button>
+
+                    </div>
+                </form>
+                 </center>
+            </div>
+
+    </div>
+{% endblock %}

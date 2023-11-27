@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    function preback() { window.history.forward();}
+    setTimeout("preback()",0);
+    window.onunload=function () {null};
+</script>
+<form method="post">
+    {% csrf_token %}
+</form>
+<table align="center">
+    <tr>
+        <td>VEHICLE NO</td>
+        <td><select name="vh">
+            <option value=""></option>
+        </select> </td>
+    </tr>
+       <tr>
+        <td>USER</td>
+        <td><select name="us">
+            <option value=""></option>
+        </select> </td>
+    </tr>
+
+     <tr>
+        <td>TYPE</td>
+        <td><input type="text" name="typ"></td>
+    </tr>
+    <tr>
+        <td>ENTRY TIME</td>
+        <td><input type="time" name="entym"></td>
+    </tr>
+     <tr>
+        <td>EXIT TIME</td>
+        <td><input type="time" name="extym"></td>
+    </tr>
+     <tr>
+        <td></td>
+        <td><input type="submit" name="btn" value="POST"></td>
+    </tr>
+</table>
+
+</body>
+</html>

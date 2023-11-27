@@ -1,0 +1,76 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#{% extends 'temp/admin.html' %}#}
+{#{% block base %}#}
+{#<body>#}
+{#<form method="post" enctype="multipart/form-data">#}
+{#    {% csrf_token %}#}
+{#<table align="center">#}
+{##}
+{#     <tr>#}
+{#        <td>SLOT</td>#}
+{#        <td><input type="file" name="slot"></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td>AMOUNT</td>#}
+{#        <td><input type="text" name="amnt"></td>#}
+{#    </tr>#}
+{#     <tr>#}
+{#        <td></td>#}
+{#        <td><input type="submit" name="btn" value="ADD"></td>#}
+{#    </tr>#}
+{#</table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+
+{% extends 'temp/admin.html' %}
+{% block base %}
+
+
+{#       <div class="container-fluid bg-primary text-white mt-5 pt-5 px-sm-3 px-md-5">#}
+        <div style="background-color: lightblue">
+
+
+  <div class="col-lg-3 col-md-6 mb-5" >
+      <script type="text/javascript">
+    function preback() { window.history.forward();}
+    setTimeout("preback()",0);
+    window.onunload=function () {null};
+</script>
+                 <h4 class="text-white mb-4">SLOT</h4>
+                 <center><form method="post" enctype="multipart/form-data">
+                     {% csrf_token %}
+
+                    <div class="form-group">
+                        <input type="file" class="form-control border-0" placeholder="Slot" required="required"  name="slot"/>
+                    </div>
+{#                      <div class="form-group">#}
+{#                          <label>entry time</label>#}
+{#                        <input type="time" class="form-control border-0" placeholder="Time" required="required"  name="tym"/>#}
+{#                    </div>#}
+{#                       <div class="form-group">#}
+{#                          <label>exit time</label>#}
+{#                        <input type="time" class="form-control border-0" placeholder="Time" required="required"  name="etym"/>#}
+{#                    </div>#}
+
+
+                    <div class="form-group">
+                        <input type="text" class="form-control border-0" placeholder="Amount" required="required"  name="amnt"/>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-lg btn-secondary btn-block border-0" type="submit">POST</button>
+                        <a  class="btn btn-lg btn-secondary btn-block border-0" href="/park/mng/">UPDATE</a>
+                    </div>
+                </form>
+                 </center>
+            </div>
+
+    </div>
+{% endblock %}

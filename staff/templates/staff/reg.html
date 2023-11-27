@@ -1,0 +1,49 @@
+{% extends 'temp/admin.html' %}
+{% block base %}
+        <div style="background-color: lightblue">
+        <script type="text/javascript">
+    function preback() { window.history.forward();}
+    setTimeout("preback()",0);
+    window.onunload=function () {null};
+</script>
+
+{#       <div class="container-fluid bg-primary text-white mt-5 pt-5 px-sm-3 px-md-5">#}
+  <div class="col-lg-3 col-md-6 mb-5" >
+                 <h4 class="text-white mb-4">REGISTER</h4>
+                 <center><form method="post">
+                     {% csrf_token %}
+
+                    <div class="form-group">
+                        <input type="text" class="form-control border-0" placeholder="Your Name" required="required"  name="name"/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="password" class="form-control border-0" placeholder="Your password" required="required"  name="psw"/>
+                    </div>
+
+                      <div class="form-group">
+                          <label><b>Gender</b></label>
+                        <input type="radio"    name="gn" value="male"/>male
+                          <input type="radio"    name="gn" value="female"/>female
+
+                    </div>
+                     <div class="form-group">
+                        <input type="text" class="form-control border-0" placeholder="Your phone" required="required"  name="ph"/>
+                    </div>
+
+                     <div class="form-group">
+                        <input type="text" class="form-control border-0" placeholder="Your Email" required="required"  name="mail"/>
+                    </div>
+
+
+
+                    <div>
+                        <button class="btn btn-lg btn-secondary btn-block border-0" type="submit">REGISTER</button>
+                    </div>
+                </form>
+                 </center>
+            </div>
+
+    </div>
+{% endblock %}

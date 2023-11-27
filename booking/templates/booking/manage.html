@@ -1,0 +1,38 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{% extends 'temp/staff.html' %}
+{% block base %}
+<body>
+<table border="2" align="center">
+    <tr>
+        <th>USER</th>
+        <th>SLOT</th>
+        <th>ENTRY TIME</th>
+        <th>EXIT TIME</th>
+        <th>VEHICLE NUMBER</th>
+        <th>VEHICLE TYPE</th>
+        <th>AMOUNT</th>
+    </tr>
+    {% for i in objval %}
+    <tr>
+        <td>{{ i.u.username }}</td>
+        <td><img src="/static/{{ i.s.slot }}" height="10%" width="10%"></td>
+        <td>{{ i.entry_time }}</td>
+        <td>{{ i.exit_time }}</td>
+        <td>{{ i.vehicle_no }}</td>
+        <td>{{ i.vehicle_type }}</td>
+        <td>{{ i.s.amount }}</td>
+        <td><a href="{% url 'en' idd=i.b_id %}">Entry time</a> </td>
+        <td><a href="{% url 'ret' idd=i.b_id %}">Exit time</a> </td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,95 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#{% extends 'temp/user.html' %}#}
+{#{% block base %}#}
+{#<body>#}
+{#<form method="post">#}
+{#    {% csrf_token %}#}
+{##}
+{#<table align="center">#}
+{#    <tr>#}
+{#        <td></td>#}
+{#        <td><select name="us">#}
+{#            <option value=""></option>#}
+{#        </select> </td>#}
+{#    </tr>#}
+
+{#     <tr>#}
+{#        <td>TYPE</td>#}
+{#        <td><input type="text" name="typ"></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td>ENTRY TIME</td>#}
+{#        <td><input type="time" name="entym"></td>#}
+{#    </tr>#}
+{#     <tr>#}
+{#        <td>EXIT TIME</td>#}
+{#        <td><input type="time" name="extym"></td>#}
+{#    </tr>#}
+{#     <tr>#}
+{#        <td>VEHICLE_NO</td>#}
+{#        <td><input type="text" name="veh"></td>#}
+{#    </tr>#}
+{#     <tr>#}
+{##}
+{##}
+{#        <td><input type="submit" name="btn" value="POST" class="btn-primary "></td>#}
+{#         <td><a href="/booking/vwbk/">PAY</a></td>#}
+{#    </tr>#}
+{##}
+{##}
+{#</table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+
+
+
+{% extends 'temp/user.html' %}
+{% block base %}
+    <div style="background-color: lightblue">
+{#       <div class="container-fluid bg-primary text-white mt-5 pt-5 px-sm-3 px-md-5">#}
+
+  <div class="col-lg-3 col-md-6 mb-5" >
+                 <h4 class="text-white mb-4">BOOKING</h4>
+                 <center><form method="post">
+                     {% csrf_token %}
+
+                    <div class="form-group">
+                        <label>Entry time</label>
+                        <input type="time" class="form-control border-0" placeholder="Entry Time" required="required"  name="entym"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Exit time</label>
+
+                        <input type="time" class="form-control border-0" placeholder="Exit Time" required="required"  name="extym"/>
+                    </div>
+
+                 <div class="form-group">
+                        <input type="text" class="form-control border-0" placeholder="Vehicle Number" required="required"  name="veh"/>
+                    </div>
+                     <div class="form-group">
+                        <input type="text" class="form-control border-0" placeholder="Vehicle Type" required="required"  name="tp"/>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-lg btn-secondary btn-block border-0" type="submit">Book</button>
+                               <button class="btn btn-lg btn-secondary btn-block border-0"> <a href="/booking/vwbk/">PAY</a></button>
+
+                    </div>
+                </form>
+                 </center>
+            </div>
+
+    </div>
+    {% if av == "exist" %}
+        <script>
+            alert("The slot is not available for this time")
+        </script>
+    {% endif %}
+{% endblock %}

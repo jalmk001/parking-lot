@@ -1,0 +1,55 @@
+{% extends 'temp/staff.html' %}
+{% block base %}
+{#       <div class="container-fluid bg-primary text-white mt-5 pt-5 px-sm-3 px-md-5">#}
+        <div style="background-color: lightblue">
+
+<script type="text/javascript">
+    function preback() { window.history.forward();}
+    setTimeout("preback()",0);
+    window.onunload=function () {null};
+</script>
+  <div class="col-lg-3 col-md-6 mb-5" >
+                 <h4 class="text-white mb-4"></h4>
+                 <center><form method="post">
+                     {% csrf_token %}
+
+                    <div class="form-group">
+{#                    <label>Vehicle Number</label>#}
+                        <select name="vv">
+{#                        <option value="Vehicle Number">vehicle Number</option>#}
+                            {% for i in objval %}
+                            <option value="{{ i.b_id }}">{{ i.vehicle_no }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                  <div class="form-group">
+{#                  <label>Slot</label>#}
+{#                        <select name="sll">#}
+{#                            <option value="Slot">Slot</option>#}
+{##}
+{#                            {% for i in objval1 %}#}
+{#                            <option value="{{ i.s_id }}">{{ i.s_id }}</option>#}
+{#                            {% endfor %}#}
+{#                        </select>#}
+{#                    </div>#}
+
+
+                    <div class="form-group">
+                        <label>Entry time</label>
+                        <input type="time" class="form-control border-0" placeholder="Entry time" required="required"  name="etym"/>
+                    </div>
+{#                      <div class="form-group">#}
+{#                          <label>Exit time</label>#}
+{##}
+{#                        <input type="time" class="form-control border-0" placeholder="Exit time" required="required"  name="xtym"/>#}
+{#                    </div>#}
+
+                    <div>
+                        <button class="btn btn-lg btn-secondary btn-block border-0" type="submit">POST</button>
+                    </div>
+                </form>
+                 </center>
+            </div>
+
+    </div>
+{% endblock %}

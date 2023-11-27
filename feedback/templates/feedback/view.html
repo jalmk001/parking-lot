@@ -1,0 +1,37 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{% extends 'temp/admin.html' %}
+{% block base %}
+<body>
+<script type="text/javascript">
+    function preback() { window.history.forward();}
+    setTimeout("preback()",0);
+    window.onunload=function () {null};
+</script>
+<table align="center" border="2" width="80%">
+    <tr class="btn-primary" height="50px">
+        <th>USER</th>
+{#        <th>SLOT</th>#}
+        <th>FEEDBACK</th>
+        <th>DATE</th>
+        <th>TIME</th>
+
+    </tr>
+    {% for i in objval %}
+    <tr>
+        <td>{{ i.u.username }}</td>
+{#        <td>{{ i.s_id }}</td>#}
+        <td>{{ i.feedback }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}

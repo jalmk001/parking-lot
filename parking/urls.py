@@ -15,21 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url,include
+from django.urls import path, include, re_path
 from login import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('arrival/',include('arrival.url')),
-    url('booking/',include('booking.url')),
-    url('feedback/',include('feedback.url')),
-    url('login/',include('login.url')),
-    url('park/',include('park.url')),
-    url('payment/',include('payment.url')),
-    url('user/',include('user.url')),
-    url('temp/',include('temp.url')),
-    url('record/',include('record.url')),
-    url('staff/',include('staff.url')),
+    path('arrival/',include('arrival.url')),
+    path('booking/',include('booking.url')),
+    path('feedback/',include('feedback.url')),
+    path('login/',include('login.url')),
+    path('park/',include('park.url')),
+    path('payment/',include('payment.url')),
+    path('user/',include('user.url')),
+    path('temp/',include('temp.url')),
+    path('record/',include('record.url')),
+    path('staff/',include('staff.url')),
 
-    url('$',views.login)
+    path('',views.login)
 ]

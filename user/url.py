@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import path, include, re_path
 
 from user import views
 
 
 urlpatterns=[
-    url('pst/',views.user)
+    path('pst/',views.user)
 ]

@@ -22,6 +22,7 @@ def postbk(request,idd):
         ob.vehicle_no=request.POST.get('veh')
         ob.vehicle_type=request.POST.get('tp')
         ob.status='pending'
+        ob.timestatus='pending'
 
         book=Booking.objects.filter(s_id=idd,date=ob.date,status='pending')
         stat="ok"
@@ -38,9 +39,9 @@ def postbk(request,idd):
                 'av': "exist",
             }
         #
-        # obj=Park.objects.get(s_id=idd)
-        # obj.status='unavailable'
-        # obj.save()
+        obj=Park.objects.get(s_id=idd)
+        obj.status='unavailable'
+        obj.save()
 
     return render(request,'booking/booking.html',context)
 
@@ -84,10 +85,10 @@ def pay(request,idd):
     ob=Payment()
     ob.u_id=ss
     ob.s_id=idd
-        # ob.amount=request.POST.get('amount')
+    ob.amount=request.POST.get('amount')
     ob.date=datetime.datetime.today()
     ob.time=datetime.datetime.now()
-    # ob.status="pending"
+    ob.status="pending"
     ob.save()
     return viewbk(request)
 

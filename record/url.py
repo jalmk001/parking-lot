@@ -1,9 +1,9 @@
-from django.conf.urls import url
+from django.urls import path, include, re_path
 
 from record import views
 
 urlpatterns=[
-    url('pst/(?P<idd>\w+)',views.postrc,name="en"),
-    url('ret/(?P<idd>\w+)', views.expost,name="ret")
+    path('pst/(?P<idd>\w+)',views.postrc,name="en"),
+    path('ret/(?P<idd>\w+)', views.expost,name="ret")
 
 ]

@@ -1,13 +1,13 @@
-from django.conf.urls import url
+from django.urls import path, include, re_path
 
 from park import views
 
 
 urlpatterns=[
-    url('pstsl/',views.postslt),
-    url('vsl/',views.vslot),
-    url('vwav/', views.vavailable),
-    url('mng/', views.manageslot),
-    url('updt/(?P<idd>\w+)',views.update,name="sup")
+    path('pstsl/',views.postslt),
+    path('vsl/',views.vslot),
+    path('vwav/', views.vavailable),
+    path('mng/', views.manageslot),
+    path('updt/(?P<idd>\w+)',views.update,name="sup")
 
 ]

@@ -1,11 +1,11 @@
-from django.conf.urls import url
+from django.urls import path, include, re_path
 
 from payment import views
 
 
 urlpatterns=[
-    url('pstpay/(?P<idd>\w+)',views.pay,name="py"),
-    url('vpy/',views.vpay),
-    url('vwad/', views.vad)
+    path('pstpay/(?P<idd>\w+)',views.pay,name="py"),
+    path('vpy/',views.vpay),
+    path('vwad/', views.vad)
 
 ]

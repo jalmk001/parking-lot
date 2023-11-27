@@ -1,7 +1,7 @@
-from django.conf.urls import url
+from django.urls import path, include, re_path
 
 from arrival import views
 
 urlpatterns=[
-    url('pst/',views.postar)
+    path('pst/',views.postar)
 ]

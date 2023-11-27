@@ -1,11 +1,11 @@
-from django.conf.urls import url
+from django.urls import path, include, re_path
 from temp import views
 
 
 urlpatterns=[
-    url('index/',views.ind),
-    url('admn/', views.adm),
-    url('usr/', views.user),
-    url('stff/', views.staff)
+    path('index/',views.ind),
+    path('admn/', views.adm),
+    path('usr/', views.user),
+    path('stff/', views.staff)
 
 ]

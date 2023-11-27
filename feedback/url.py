@@ -1,9 +1,9 @@
-from django.conf.urls import url
+from django.urls import path, include, re_path
 
 from feedback import views
 
 
 urlpatterns=[
-    url('pstfd/',views.postfdbk),
-    url('vfd/',views.vwfd)
+    path('pstfd/',views.postfdbk),
+    path('vfd/',views.vwfd)
 ]

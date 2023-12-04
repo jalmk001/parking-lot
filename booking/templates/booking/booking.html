@@ -79,7 +79,6 @@
 
                     <div>
                         <button class="btn btn-lg btn-secondary btn-block border-0" type="submit">Book</button>
-                               <button class="btn btn-lg btn-secondary btn-block border-0"> <a href="/booking/vwbk/">PAY</a></button>
 
                     </div>
                 </form>
@@ -94,7 +93,7 @@
 
     {% elif av == "booked" %}
         <script>
-            alert("The slot is booked")
+            alert("The slot is booked. Go to payment details and confirm your slot")
         </script>
     {% endif %}
 {% endblock %}

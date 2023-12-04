@@ -55,6 +55,14 @@ def postbk(request,idd):
                     break
         if stat=="ok":
             ob.save()
+            slot = Park.objects.get(s_id=idd)
+            Payment.objects.create(
+                s_id = idd,
+                u_id = ss,
+                amount= slot.amount,
+                date= datetime.datetime.now(),
+                time = ob.entry_time
+            )
             context = {
                 'av': "booked",
             }

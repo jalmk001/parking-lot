@@ -1,19 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from payment.models import Payment
 
 # Create your views here.
 import datetime
 def pay(request,idd):
     ss= request.session["u_id"]
-    # if request.method=='POST':
-    ob=Payment()
-    ob.u_id=ss
-    ob.s_id=idd
-        # ob.amount=request.POST.get('amount')
-    ob.date=datetime.datetime.today()
-    ob.time=datetime.datetime.now()
-    ob.save()
-    return render(request,'payment/post.html')
+    payment = Payment.objects.get(py_id=idd, u_id=ss)
+    payment.status = "confirmed"
+    payment.save()
+    return redirect(vpay)
 
 def vpay(request):
     ss= request.session["u_id"]

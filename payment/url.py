@@ -4,7 +4,7 @@ from payment import views
 
 
 urlpatterns=[
-    path('pstpay/(?P<idd>\w+)',views.pay,name="py"),
+    path('pstpay/<int:idd>',views.pay,name="py"),
     path('vpy/',views.vpay),
     path('vwad/', views.vad)
 

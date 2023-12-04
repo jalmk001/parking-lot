@@ -19,6 +19,8 @@
         <th>AMOUNT</th>
         <th>DATE</th>
         <th>TIME</th>
+        <th>STATUS</th>
+        <th></th>
 
     </tr>
     {% for i in objaval %}
@@ -28,6 +30,18 @@
         <td>{{ i.s.amount }}</td>
         <td>{{ i.date }}</td>
         <td>{{ i.time }}</td>
+        {% if i.status == "pending" %}
+        <td style="color: red; font-weight: bolder; text-align: center;">
+            {{ i.status }}
+        </td>
+        <td class="border-0">     
+            <button class="btn btn-sm btn-secondary btn-block border-0 text-center   "> <a href="/payment/pstpay/{{ i.py_id }}">PAY</a></button>
+        </td>
+        {% elif i.status == 'confirmed' %}
+        <td style="color: green; font-weight: bolder; text-align: center;" colspan="2">{{ i.status }}</td>
+        {% else %}
+        <td>Nil</td>
+        {% endif %}
     </tr>
     {% endfor %}
 </table>

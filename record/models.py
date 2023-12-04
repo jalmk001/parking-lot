@@ -11,7 +11,7 @@ class Record(models.Model):
     # s_id = models.IntegerField()
 
 
-    class Meta:
-        managed = False
-        db_table = 'record'
+    # class Meta:
+    #     # managed = False
+    #     db_table = 'record'
 

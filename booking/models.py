@@ -20,9 +20,9 @@ class Booking(models.Model):
 
 
 
-    class Meta:
-        managed = False
-        db_table = 'booking'
+    # class Meta:
+    #     # managed = False
+    #     db_table = 'booking'
 
 
 

@@ -12,7 +12,7 @@ class Feedback(models.Model):
     # u_id = models.IntegerField()
     # s_id = models.IntegerField()
 
-    class Meta:
-        managed = False
-        db_table = 'feedback'
+    # class Meta:
+    #     # managed = False
+    #     db_table = 'feedback'
 

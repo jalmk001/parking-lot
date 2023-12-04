@@ -10,6 +10,6 @@ class Login(models.Model):
     type = models.CharField(max_length=100)
     u_id = models.IntegerField()
 
-    class Meta:
-        managed = False
-        db_table = 'login'
+    # class Meta:
+    #     # managed = False
+    #     db_table = 'login'

@@ -12,13 +12,14 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Login',
+            name='Staff',
             fields=[
-                ('l_id', models.AutoField(primary_key=True, serialize=False)),
+                ('staff_id', models.AutoField(primary_key=True, serialize=False)),
                 ('username', models.CharField(max_length=100)),
                 ('password', models.CharField(max_length=100)),
-                ('type', models.CharField(max_length=100)),
-                ('u_id', models.IntegerField()),
+                ('gender', models.CharField(max_length=100)),
+                ('phone', models.CharField(max_length=20)),
+                ('email', models.CharField(max_length=200)),
             ],
         ),
     ]

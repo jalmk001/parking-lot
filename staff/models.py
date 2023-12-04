@@ -9,6 +9,6 @@ class Staff(models.Model):
     phone = models.CharField(max_length=20)
     email = models.CharField(max_length=200)
 
-    class Meta:
-        managed = False
-        db_table = 'staff'
+    # class Meta:
+    #     # managed = False
+    #     db_table = 'staff'

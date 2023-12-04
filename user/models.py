@@ -13,6 +13,6 @@ class User(models.Model):
     # vehicle_no = models.CharField(max_length=100)
     # type = models.CharField(max_length=100)
 
-    class Meta:
-        managed = False
-        db_table = 'user'
+    # class Meta:
+    #     # managed = False
+    #     db_table = 'user'

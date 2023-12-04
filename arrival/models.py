@@ -11,8 +11,8 @@ class Arrival(models.Model):
     # vehicle_no = models.CharField(max_length=100)
     b_id = models.IntegerField()
 
-    class Meta:
-        managed = False
-        db_table = 'arrival'
+    # class Meta:
+    #     # managed = False
+    #     db_table = 'arrival'
 
 

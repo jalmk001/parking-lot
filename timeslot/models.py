@@ -6,6 +6,6 @@ class Timeslot(models.Model):
     time = models.CharField(max_length=250)
     status = models.CharField(max_length=100)
 
-    class Meta:
-        managed = False
-        db_table = 'timeslot'
+    # class Meta:
+    #     # managed = False
+    #     db_table = 'timeslot'

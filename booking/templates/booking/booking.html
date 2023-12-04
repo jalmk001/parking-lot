@@ -91,5 +91,10 @@
         <script>
             alert("The slot is not available for this time")
         </script>
+
+    {% elif av == "booked" %}
+        <script>
+            alert("The slot is booked")
+        </script>
     {% endif %}
 {% endblock %}

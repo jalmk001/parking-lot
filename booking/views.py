@@ -6,6 +6,27 @@ from payment.models import Payment
 # import datetime
 # Create your views here.
 
+
+def chekavail(btime1,btime2,ctime1,ctime2):
+
+    dt_string = "2020-12-18 "+btime1
+    format = "%Y-%m-%d %H:%M"
+    btime1 = datetime.datetime.strptime(dt_string, format)
+    btime1=btime1.time()
+
+    dt_string = "2020-12-18 " + btime2
+    btime2 = datetime.datetime.strptime(dt_string, format)
+    btime2 = btime2.time()
+
+    status="ok"
+    
+
+    if ctime1<btime1<ctime2 or ctime1<btime2<ctime2 :
+        status="exist"
+    elif btime1 == ctime1 and btime2 == ctime2:
+        status= "exist"
+    return status
+
 def postbk(request,idd):
     ss= request.session["u_id"]
 
@@ -24,7 +45,7 @@ def postbk(request,idd):
         ob.status='pending'
         ob.timestatus='pending'
 
-        book=Booking.objects.filter(s_id=idd,date=ob.date,status='pending')
+        book=Booking.objects.filter(s_id=idd, date=ob.date,status='pending')
         stat="ok"
         if len(book)>0:
 
@@ -34,40 +55,18 @@ def postbk(request,idd):
                     break
         if stat=="ok":
             ob.save()
+            context = {
+                'av': "booked",
+            }
         else:
             context = {
                 'av': "exist",
             }
-        #
         obj=Park.objects.get(s_id=idd)
         obj.status='unavailable'
         obj.save()
 
     return render(request,'booking/booking.html',context)
-
-import time
-def chekavail(btime1,btime2,ctime1,ctime2):
-
-    dt_string = "2020-12-18 "+btime1
-    format = "%Y-%m-%d %H:%M"
-    btime1 = datetime.datetime.strptime(dt_string, format)
-    btime1=btime1.time()
-
-    dt_string = "2020-12-18 " + btime2
-    btime2 = datetime.datetime.strptime(dt_string, format)
-    btime2 = btime2.time()
-
-    status="ok"
-
-    if ctime1<btime1<ctime2:
-        print('hello')
-        status="exist"
-    elif ctime1<btime2<ctime2:
-        print('haiiiii')
-        status="exist"
-    return status
-
-
 
 
 def viewbk(request):

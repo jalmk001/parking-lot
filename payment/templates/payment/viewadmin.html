@@ -15,19 +15,29 @@
 <table align="center" border="2" width="80%">
     <tr class="btn-primary" height="80px">
         <th>USER</th>
-        <th>SLOT</th>
-        <th>AMOUNT</th>
-        <th>DATE</th>
-        <th>TIME</th>
+        <th class="text-center">SLOT</th>
+        <th class="text-center">AMOUNT</th>
+        <th class="text-center">DATE</th>
+        <th class="text-center">TIME</th>
+        <th class="text-center">STATUS</th>
 
     </tr>
     {% for i in objaval %}
     <tr>
         <td>{{ i.u.username }}</td>
-        <td><img src="/static/{{ i.s.slot }}" height="20%" width="20%"></td>
+        <td class="w-25"><img src="/static/{{ i.s.slot }}" height="20%" width="20%"></td>
         <td>{{ i.s.amount }}</td>
         <td>{{ i.date }}</td>
-        <td>{{ i.time }}</td>
+        <td class="text-center">{{ i.entry_time }} - {{ i.exit_time }}</td>
+        {% if i.status == "pending" %}
+        <td style="color: red; font-weight: bolder; text-align: center;">
+            {{ i.status }}
+        </td>
+        {% elif i.status == 'confirmed' %}
+        <td style="color: green; font-weight: bolder; text-align: center;" colspan="2">{{ i.status }}</td>
+        {% else %}
+        <td>Nil</td>
+        {% endif %}
     </tr>
     {% endfor %}
 </table>

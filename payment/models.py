@@ -14,7 +14,8 @@ class Payment(models.Model):
     u=models.ForeignKey(User,to_field='u_id',on_delete=models.CASCADE)
     # u_id = models.IntegerField()
     date = models.DateField()
-    time = models.TimeField()
+    entry_time = models.TimeField()
+    exit_time = models.TimeField()
     amount = models.CharField(default='200', max_length=100)
     status = models.CharField(default='pending', choices=PAYMENT_STATUSES, max_length=100)
 

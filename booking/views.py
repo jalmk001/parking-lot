@@ -7,7 +7,7 @@ from payment.models import Payment
 # Create your views here.
 
 
-def chekavail(btime1,btime2,ctime1,ctime2):
+def chekavail(btime1,btime2,ctime1,ctime2, booked_date):
 
     dt_string = "2020-12-18 "+btime1
     format = "%Y-%m-%d %H:%M"
@@ -19,9 +19,8 @@ def chekavail(btime1,btime2,ctime1,ctime2):
     btime2 = btime2.time()
 
     status="ok"
-    
 
-    if ctime1<btime1<ctime2 or ctime1<btime2<ctime2 :
+    if (ctime1<btime1<ctime2 or ctime1<btime2<ctime2) and booked_date == datetime.date.today() :
         status="exist"
     elif btime1 == ctime1 and btime2 == ctime2:
         status= "exist"
@@ -39,7 +38,7 @@ def postbk(request,idd):
         ob.entry_time=request.POST.get('entym')
         ob.exit_time=request.POST.get('extym')
         ob.s_id=idd
-        ob.date=datetime.datetime.today()
+        ob.date=datetime.date.today()
         ob.vehicle_no=request.POST.get('veh')
         ob.vehicle_type=request.POST.get('tp')
         ob.status='pending'
@@ -50,7 +49,7 @@ def postbk(request,idd):
         if len(book)>0:
 
             for bo in book:
-                stat=chekavail(ob.entry_time,ob.exit_time,bo.entry_time,bo.exit_time)
+                stat=chekavail(ob.entry_time,ob.exit_time,bo.entry_time,bo.exit_time, bo.date)
                 if stat=='exist':
                     break
         if stat=="ok":
@@ -61,7 +60,8 @@ def postbk(request,idd):
                 u_id = ss,
                 amount= slot.amount,
                 date= datetime.datetime.now(),
-                time = ob.entry_time
+                entry_time = ob.entry_time,
+                exit_time = ob.exit_time
             )
             context = {
                 'av': "booked",
